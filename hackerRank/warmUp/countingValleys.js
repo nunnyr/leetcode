@@ -28,5 +28,38 @@ function countingValleys(steps, path){
 
 }
 
+function countingValleys(steps, path) {
+    //add or subtract the value +- 1 depending on U or D 
+    //we need a counter starting at zero
+    //if my counter is a negative number....I want to check when it is back to zero
+    
+      let counter = 0 
+      let valleys = 0
+      let flag = false
+  
+      for(let i of path){
+          
+          i === "U" ? counter++ : counter--
+          // if(i === "U"){
+          //     counter++
+          // }
+          // else{
+          //     counter--
+          // }
+          counter < 0 ? flag = true : null
+          // if(counter < 0 ){
+          // flag = true 
+          // }
+          
+          
+          if(flag && counter === 0){
+              valleys++
+              flag = false
+          }
+      }
+      return valleys
+      
+  }
+
 console.log(countingValleys(8, UDDDUDUU));
 //return the number of valleys traversed
